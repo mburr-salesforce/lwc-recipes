@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="GraphqlAggregate" icon-name="custom:custom39">
+        <template lwc:if={graphql.data}>
+            <div class="slds-var-m-around_medium">
+                There are {numberOfAccounts} accounts in this org.
+                The annual revenue of these accounts ranges from {minAnnualRevenue} to {maxAnnualRevenue},
+                with an average of {avgAnnualRevenue}.
+                These accounts employ between {minNumberOfEmployees} and {maxNumberOfEmployees} people each,
+                with an average of {avgNumberOfEmployees}.
+            </div>
+        </template>
+        <template lwc:if={graphql.errors}>
+            <c-error-panel errors={graphql.errors}></c-error-panel>
+        </template>
+        <c-view-source source="lwc/graphqlContacts" slot="footer">
+            Get records using a GraphQL query and @wire.
+        </c-view-source>
+    </lightning-card>
+</template>

@@ -7,7 +7,7 @@ export default class GraphqlContacts extends LightningElement {
             query getContacts {
                 uiapi {
                     query {
-                        Contact(first: 5, orderBy: { Name: { order: ASC } }) {
+                        Contact(where: { Picture__c: { ne: null } }, first: 5, orderBy: { Name: { order: ASC } }) {
                             edges {
                                 node {
                                     Id
@@ -15,6 +15,9 @@ export default class GraphqlContacts extends LightningElement {
                                         value
                                     }
                                     Phone {
+                                        value
+                                    }
+                                    Picture__c {
                                         value
                                     }
                                     Title {
@@ -35,7 +38,7 @@ export default class GraphqlContacts extends LightningElement {
             Id: edge.node.Id,
             Name: edge.node.Name.value,
             Phone: edge.node.Phone.value,
-            Picture__c: null, // Temporary workaround for a bug that prevents using custom fields in GraphQL
+            Picture__c: edge.node.Picture__c.value,
             Title: edge.node.Title.value
         }));
     }

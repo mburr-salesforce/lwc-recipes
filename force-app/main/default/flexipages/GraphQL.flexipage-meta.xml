@@ -11,6 +11,12 @@
                 <identifier>graphqlContacts</identifier>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>graphqlAggregate</componentName>
+                <identifier>graphqlAggregate</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>
