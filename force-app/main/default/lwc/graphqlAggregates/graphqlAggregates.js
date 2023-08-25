@@ -1,7 +1,7 @@
 import { LightningElement, wire } from 'lwc';
 import { gql, graphql } from 'lightning/uiGraphQLApi';
 
-export default class GraphqlContacts extends LightningElement {
+export default class GraphqlAggregates extends LightningElement {
     aggregates;
 
     @wire(graphql, {

@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="GraphqlAggregates" icon-name="custom:custom39">
+        <template lwc:if={graphql.data}>
+            <div class="slds-p-around_medium">
+                <h2>{accountLabel}</h2>
+                <dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Total accounts:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-wrap">{numberOfAccounts}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Annual revenue:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-wrap">{minAnnualRevenue} - {maxAnnualRevenue}<br/>({avgAnnualRevenue} average)</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Employees:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{minNumberOfEmployees} - {maxNumberOfEmployees}<br/>({avgNumberOfEmployees} average)</p>
+                    </dd>
+                </dl>
+            </div>           
+        </template>
+        <template lwc:if={graphql.errors}>
+            <c-error-panel errors={graphql.errors}></c-error-panel>
+        </template>
+        <c-view-source source="lwc/graphqlAggregates" slot="footer">
+            Get records using a GraphQL query and @wire.
+        </c-view-source>
+    </lightning-card>
+</template>
