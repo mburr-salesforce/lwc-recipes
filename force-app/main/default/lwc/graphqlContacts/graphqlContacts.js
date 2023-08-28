@@ -17,7 +17,11 @@ export default class GraphqlContacts extends LightningElement {
                                     Phone {
                                         value
                                     }
-                                    Picture__c {
+                                    # Salesforce's referential integrity mechanisms will automatically update the
+                                    # names of renamed custom objects and fields in this query. We use a GraphQL
+                                    # alias on fields that might be renamed to ensure that the field in the result
+                                    # data continues to use the Picture__c name that the code below expects.
+                                    Picture__c: Picture__c {
                                         value
                                     }
                                     Title {
